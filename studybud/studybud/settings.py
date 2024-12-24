@@ -33,12 +33,17 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'base',
     'hello',
+    'newyear',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
 ]
 
 MIDDLEWARE = [
