@@ -2,22 +2,22 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 
-tasks = [
-    {"id": 1, "name": "Sleep"},
-    {"id": 2, "name": "Eat"},
-    {"id": 3, "name": "Walk"}
-]
-
 app_name = "tasks"
 
 def index(request):
+    if "tasks" not in request.session:
+        request.session["tasks"] = []
+
+    print(request.session["tasks"])
     return render(request, "tasks/index.html", {
-        "tasks": tasks
+        "tasks": request.session["tasks"]
     })
 
 def add(request):
     if request.method == "POST":
         name = request.POST["name"]
-        tasks.append({"id": 4, "name": name})
+        task = {"id": len(request.session["tasks"]) + 1, "name": name}
+        request.session["tasks"].append(task)
+        request.session.modified = True
         return redirect("tasks:index")
     return render(request, "tasks/add.html")
