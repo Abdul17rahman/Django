@@ -1,0 +1,35 @@
+sqlite> CREATE TABLE flights (
+(x1...> id INTEGER PRIMARY KEY AUTOINCREMENT,
+(x1...> origin TEXT NOT NULL,
+(x1...> destination TEXT NOT NULL,
+(x1...> duration TEXT NOT NULL
+(x1...> );
+sqlite> .tables
+flights
+sqlite> INSERT INTO flights (origin, destination, duration) VALUES
+   ...> ("Entebbe", "Nairobi", 60);
+sqlite> select * from flights;
+1|Entebbe|Nairobi|60
+sqlite> INSERT INTO flights (origin, destination, duration) VALUES
+   ...> ("London", "Jeddah", 700);
+sqlite> INSERT INTO flights (origin, destination, duration) VALUES
+   ...> ("Entebbe", "Kigali", 75);
+sqlite> INSERT INTO flights (origin, destination, duration) VALUES
+   ...> ("Nairobi", "Dubai", 400);
+sqlite> INSERT INTO flights (origin, destination, duration) VALUES
+   ...> ("Entebbe", "Dubai", 450);
+sqlite> INSERT INTO flights (origin, destination, duration) VALUES
+   ...> ("Entebbe", "Dar Es Salaam", 80);
+sqlite> INSERT INTO flights (origin, destination, duration) VALUES
+   ...> ("Entebbe", "Adiss Ababa");
+Parse error: 2 values for 3 columns
+sqlite> INSERT INTO flights (origin, destination, duration) VALUES
+   ...> ("Entebbe", "Adiss Ababa", 200);
+sqlite> INSERT INTO flights (origin, destination, duration) VALUES
+   ...> ("Entebbe", "Mogadishu", 400);
+sqlite> INSERT INTO flights (origin, destination, duration) VALUES
+   ...> ("Entebbe", "Mombasa", 200);
+sqlite> INSERT INTO flights (origin, destination, duration) VALUES
+   ...> ("Entebbe", "Kinsasha", 300);
+sqlite> .mode columns -- Formarts the table on selction with columns
+sqlite> .headers yes  -- Adds headers on the table.
